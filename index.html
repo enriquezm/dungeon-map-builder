@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dungeon Map Builder</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      font-family: 'Space Mono', monospace;
+      display: flex;
+      height: 100vh;
+      background: #f5f0e8;
+      color: #1a1a1a;
+    }
+
+    /* Palette sidebar */
+    #palette-container {
+      width: 220px;
+      padding: 16px;
+      overflow-y: auto;
+      background: #ffde59;
+      border-right: 4px solid #1a1a1a;
+    }
+
+    #palette-container h3 {
+      font-size: 14px;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      margin: 16px 0 8px;
+      padding-bottom: 4px;
+      border-bottom: 3px solid #1a1a1a;
+    }
+
+    #palette-container .tile-palette-grid {
+      display: flex !important;
+      flex-wrap: wrap !important;
+      gap: 10px !important;
+    }
+
+    #palette-container .tile-palette-item {
+      width: 52px !important;
+      height: 52px !important;
+      border: 3px solid #1a1a1a !important;
+      border-radius: 0 !important;
+      background-color: #ffffff !important;
+      box-shadow: 3px 3px 0 #1a1a1a !important;
+      cursor: pointer !important;
+      transition: transform 0.1s, box-shadow 0.1s !important;
+    }
+
+    #palette-container .tile-palette-item:hover {
+      transform: translate(-1px, -1px) !important;
+      box-shadow: 5px 5px 0 #1a1a1a !important;
+    }
+
+    #palette-container .tile-palette-item.selected {
+      background-color: #a8e6cf !important;
+      outline: none !important;
+      box-shadow: 5px 5px 0 #1a1a1a !important;
+      transform: translate(-2px, -2px) !important;
+    }
+
+    #palette-container .door-indicator {
+      background-color: #ff6b6b !important;
+    }
+
+    /* Canvas area */
+    #canvas-wrapper {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      background: #f5f0e8;
+    }
+
+    /* Toolbar */
+    #toolbar {
+      padding: 12px 16px;
+      display: flex;
+      gap: 12px;
+      background: #f5f0e8;
+      border-bottom: 4px solid #1a1a1a;
+    }
+
+    #toolbar button {
+      padding: 10px 20px;
+      cursor: pointer;
+      border: 3px solid #1a1a1a;
+      border-radius: 0;
+      background: #ffffff;
+      color: #1a1a1a;
+      font-family: 'Space Mono', monospace;
+      font-size: 13px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      box-shadow: 4px 4px 0 #1a1a1a;
+      transition: transform 0.1s, box-shadow 0.1s;
+    }
+
+    #toolbar button:hover {
+      transform: translate(-2px, -2px);
+      box-shadow: 6px 6px 0 #1a1a1a;
+    }
+
+    #toolbar button:active {
+      transform: translate(2px, 2px);
+      box-shadow: 1px 1px 0 #1a1a1a;
+    }
+
+    #toolbar button#btn-save {
+      background: #a8e6cf;
+    }
+
+    #toolbar button#btn-load {
+      background: #87ceeb;
+    }
+
+    #toolbar button#btn-export {
+      background: #ffd3b6;
+    }
+
+    #toolbar button#btn-import {
+      background: #d4a5ff;
+    }
+
+    #toolbar button#btn-undo {
+      background: #ffd3b6;
+    }
+
+    /* Canvas */
+    canvas {
+      flex: 1;
+      display: block;
+      border: 4px solid #1a1a1a;
+      margin: 16px;
+      background: #ffffff;
+      box-shadow: 8px 8px 0 #1a1a1a;
+    }
+  </style>
+</head>
+<body>
+  <div id="palette-container"></div>
+  <div id="canvas-wrapper">
+    <div id="toolbar">
+      <button id="btn-save">Save</button>
+      <button id="btn-load">Load</button>
+      <button id="btn-export">Export</button>
+      <button id="btn-import">Import</button>
+      <button id="btn-undo">Undo</button>
+    </div>
+    <canvas id="dungeon-canvas" width="960" height="960"></canvas>
+  </div>
+  <script type="module" src="./src/main.ts"></script>
+</body>
+</html>
