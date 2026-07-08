@@ -36,4 +36,30 @@ export const defaultTileDefinitions: TileDefinition[] = [
     doors: ["top", "bottom", "left", "right"],
     shape: { outline: "/src/assets/tiles/rooms/room-05.svg", fill: "" },
   },
+
+  // --- Hallways ---
+  {
+    id: "hallway-01",
+    type: "hallway",
+    doors: ["top", "left"],
+    shape: { outline: "/src/assets/tiles/hallways/hallway-01.svg", fill: "" },
+  },
+  {
+    id: "hallway-02",
+    type: "hallway",
+    doors: ["top", "bottom"],
+    shape: { outline: "/src/assets/tiles/hallways/hallway-02.svg", fill: "" },
+  },
+  {
+    id: "hallway-03",
+    type: "hallway",
+    doors: ["top", "left", "right"],
+    shape: { outline: "/src/assets/tiles/hallways/hallway-03.svg", fill: "" },
+  },
+  {
+    id: "hallway-04",
+    type: "hallway",
+    doors: ["top", "bottom", "left", "right"],
+    shape: { outline: "/src/assets/tiles/hallways/hallway-04.svg", fill: "" },
+  },
 ];
