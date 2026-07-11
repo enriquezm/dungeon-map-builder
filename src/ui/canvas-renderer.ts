@@ -50,7 +50,7 @@ export class CanvasRenderer {
   private preloadImages(): void {
     const allTiles = this.registry.getAll();
     for (const tile of allTiles) {
-      if (tile.shape.outline && tile.shape.outline.endsWith(".svg")) {
+      if (tile.shape.outline && (tile.shape.outline.endsWith(".svg") || tile.shape.outline.startsWith("data:"))) {
         const img = new Image();
         img.src = tile.shape.outline;
         img.onload = () => this.render();
